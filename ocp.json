@@ -1,0 +1,488 @@
+{
+  "createdBy": "lisha@hpe.com",
+  "createdOn": "2022-12-06 09:09:53",
+  "lastUpdatedBy": "lisha@hpe.com",
+  "lastUpdatedOn": "2022-12-06 09:19:04",
+  "tenantId": "5129504757-06",
+  "siteId": "5129504757-06",
+  "solutionVersion": "1.0",
+  "solutionName": "OCP",
+  "serviceGroups": [
+    {
+      "componentId": "svcGroup-001",
+      "svcGroupName": "gl-ocp-service-group1",
+      "svcGroupDescription": "GL ocp Service Group",
+      "hostCount": 0,
+      "volumes": 0,
+      "volumeCapacityinGiB": 0
+    }
+  ],
+  "infraGroups": [
+    {
+      "serviceGroupPath": "$.serviceGroups[?(@.componentId=='svcGroup-001')]",
+      "infraGroupName": "MHN-Cluster",
+      "infraGroupDescription": "MHN Cluster",
+      "componentId": "infraGroup-002",
+      "count": 3,
+      "specificAttributes": {
+        "clusters": [
+          {
+            "name": "Head Node Cluster",
+            "clusterDescription": "Head Node Cluster",
+            "baseDomain": "isv.local"
+          }
+        ],
+        "servers": [
+          {
+            "componentId": "server-005",
+            "type": "DL365",
+            "model": "P24741-B23",
+            "hostName": "scs07",
+            "iloHostName": "ilo-scs07",
+            "bootMethod": "Local Disk",
+            "networkConnections": [
+              {
+                "networkName": "Out of Band Management(OOBM) Network",
+                "ipAddressType": "IPv4",
+                "purpose": "iLO Management",
+                "ipAddress": "172.28.1.113"
+              },
+              {
+                "networkName": "Foundation Services External Network",
+                "ipAddressType": "IPv4",
+                "purpose": "GL Metal Primary",
+                "ipAddress": "10.180.20.100"
+              },
+              {
+                "networkName": "Storage iSCSI A Network",
+                "ipAddressType": "IPv4",
+                "purpose": "iSCSI",
+                "ipAddress": "172.28.7.4"
+              },
+              {
+                "networkName": "Storage iSCSI B Network",
+                "ipAddressType": "IPv4",
+                "purpose": "iSCSI",
+                "ipAddress": "172.28.8.4"
+              }
+            ],
+            "accessCredentials": [
+              {
+                "target": "HOST",
+                "userName": "administrator",
+                "password": "Password!234"
+              },
+              {
+                "target": "ILO",
+                "userName": "admin",
+                "password": "Password!23456"
+              }
+            ],
+            "networkSettingsPath": "$.serviceGroups[?(@.componentId=='svcGroup-001')].specificAttributes.loadBalancerVIP",
+            "serialNumber": "XYZ"
+          },
+          {
+            "componentId": "server-006",
+            "type": "DL365",
+            "model": "P24741-B23",
+            "hostName": "scs08",
+            "iloHostName": "ilo-scs08",
+            "bootMethod": "Local Disk",
+            "networkConnections": [
+              {
+                "networkName": "Out of Band Management(OOBM) Network",
+                "ipAddressType": "IPv4",
+                "purpose": "iLO Management",
+                "ipAddress": "172.28.1.114"
+              },
+              {
+                "networkName": "Foundation Services External Network",
+                "ipAddressType": "IPv4",
+                "purpose": "GL Metal Primary",
+                "ipAddress": "10.180.20.101"
+              },
+              {
+                "networkName": "Storage iSCSI A Network",
+                "ipAddressType": "IPv4",
+                "purpose": "iSCSI",
+                "ipAddress": "172.28.7.5"
+              },
+              {
+                "networkName": "Storage iSCSI B Network",
+                "ipAddressType": "IPv4",
+                "purpose": "iSCSI",
+                "ipAddress": "172.28.8.5"
+              }
+            ],
+            "accessCredentials": [
+              {
+                "target": "HOST",
+                "userName": "administrator",
+                "password": "Password!234"
+              },
+              {
+                "target": "ILO",
+                "userName": "admin",
+                "password": "Password!23456"
+              }
+            ],
+            "networkSettingsPath": "$.serviceGroups[?(@.componentId=='svcGroup-001')].specificAttributes.loadBalancerVIP",
+            "serialNumber": "XYZ"
+          },
+          {
+            "componentId": "server-007",
+            "type": "DL365",
+            "model": "P24741-B23",
+            "hostName": "scs09",
+            "iloHostName": "ilo-scs09",
+            "bootMethod": "Local Disk",
+            "networkConnections": [
+              {
+                "networkName": "Out of Band Management(OOBM) Network",
+                "ipAddressType": "IPv4",
+                "purpose": "iLO Management",
+                "ipAddress": "172.28.1.115"
+              },
+              {
+                "networkName": "Foundation Services External Network",
+                "ipAddressType": "IPv4",
+                "purpose": "GL Metal Primary",
+                "ipAddress": "10.180.20.102"
+              },
+              {
+                "networkName": "Storage iSCSI A Network",
+                "ipAddressType": "IPv4",
+                "purpose": "iSCSI",
+                "ipAddress": "172.28.7.6"
+              },
+              {
+                "networkName": "Storage iSCSI B Network",
+                "ipAddressType": "IPv4",
+                "purpose": "iSCSI",
+                "ipAddress": "172.28.8.6"
+              }
+            ],
+            "accessCredentials": [
+              {
+                "target": "HOST",
+                "userName": "administrator",
+                "password": "Password!234"
+              },
+              {
+                "target": "ILO",
+                "userName": "admin",
+                "password": "Password!23456"
+              }
+            ],
+            "networkSettingsPath": "$.serviceGroups[?(@.componentId=='svcGroup-001')].specificAttributes.loadBalancerVIP",
+            "serialNumber": "XYZ"
+          }
+        ]
+      }
+    },
+    {
+      "serviceGroupPath": "$.serviceGroups[?(@.componentId=='svcGroup-001')]",
+      "infraGroupName": "OCP-Cluster",
+      "infraGroupDescription": "OCP Cluster",
+      "componentId": "infraGroup-001",
+      "count": 3,
+      "specificAttributes": {
+        "clusters": [
+          {
+            "appDomain": "ocp.isv.local",
+            "clusterDescription": "OCP Cluster",
+            "name": "OCP Cluster",
+            "clusterVIP": {
+              "networkConnections": [
+                {
+                  "networkName": "Foundation Services External Network",
+                  "ipAddressType": "IPv4",
+                  "purpose": "FS External",
+                  "ipAddress": "10.180.20.210"
+                }
+              ]
+            },
+            "squidVIP": {
+              "networkConnections": [
+                {
+                  "networkName": "Foundation Services External Network",
+                  "ipAddressType": "IPv4",
+                  "purpose": "FS External",
+                  "ipAddress": "10.180.20.211"
+                }
+              ]
+            },
+            "squidPort": 3128,
+            "ocpVersion": "4.10.16",
+            "dhcpIpPool": [
+              {
+                "startAddress": "10.180.20.210",
+                "endAddress": "10.180.20.218",
+                "networkName": "Foundation Services External Network",
+                "purpose": "FS External"
+              }
+            ],
+            "virtualMachines": [
+              {
+                "componentId": "vm-001",
+                "type": "RHVH",
+                "hostName": "ocp-master1",
+                "vmName": "ocp-master1",
+                "vmStaticUniqueName": "ocp-master1",
+                "accessCredentials": [
+                  {
+                    "userName": "admin",
+                    "password": "Password!234",
+                    "target": "OS"
+                  }
+                ],
+                "networkConnections": [
+                  {
+                    "ipAddressType": "IPv4",
+                    "networkName": "Foundation Services External Network",
+                    "purpose": "FS External",
+                    "ipAddress": "10.180.20.212"
+                  }
+                ]
+              },
+              {
+                "componentId": "vm-002",
+                "type": "RHVH",
+                "hostName": "ocp-master2",
+                "vmName": "ocp-master2",
+                "vmStaticUniqueName": "ocp-master2",
+                "accessCredentials": [
+                  {
+                    "userName": "admin",
+                    "password": "Password!234",
+                    "target": "OS"
+                  }
+                ],
+                "networkConnections": [
+                  {
+                    "ipAddressType": "IPv4",
+                    "networkName": "Foundation Services External Network",
+                    "purpose": "FS External",
+                    "ipAddress": "10.180.20.213"
+                  }
+                ]
+              },
+              {
+                "componentId": "vm-003",
+                "type": "RHVH",
+                "hostName": "ocp-master3",
+                "vmName": "ocp-master3",
+                "vmStaticUniqueName": "ocp-master3",
+                "accessCredentials": [
+                  {
+                    "userName": "admin",
+                    "password": "Password!234",
+                    "target": "OS"
+                  }
+                ],
+                "networkConnections": [
+                  {
+                    "ipAddressType": "IPv4",
+                    "networkName": "Foundation Services External Network",
+                    "purpose": "FS External",
+                    "ipAddress": "10.180.20.214"
+                  }
+                ]
+              },
+              {
+                "componentId": "vm-004",
+                "type": "RHVH",
+                "hostName": "ocp-bootstrap",
+                "vmName": "ocp-bootstrap",
+                "vmStaticUniqueName": "ocp-bootstrap",
+                "accessCredentials": [
+                  {
+                    "userName": "admin",
+                    "password": "Password!234",
+                    "target": "OS"
+                  }
+                ],
+                "networkConnections": [
+                  {
+                    "ipAddressType": "IPv4",
+                    "networkName": "Foundation Services External Network",
+                    "purpose": "FS External",
+                    "ipAddress": "10.180.20.215"
+                  }
+                ]
+              },
+              {
+                "componentId": "vm-005",
+                "type": "RHVH",
+                "hostName": "ocp-rhel7-installer",
+                "vmName": "ocp-rhel7-installer",
+                "vmStaticUniqueName": "ocp-rhel7-installer",
+                "accessCredentials": [
+                  {
+                    "userName": "admin",
+                    "password": "Password!234",
+                    "target": "OS"
+                  }
+                ],
+                "networkConnections": [
+                  {
+                    "ipAddressType": "IPv4",
+                    "networkName": "Foundation Services External Network",
+                    "purpose": "FS External",
+                    "ipAddress": "10.180.20.216"
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "servers": [
+          {
+            "componentId": "server-001",
+            "type": "DL365",
+            "model": "P24741-B23",
+            "hostName": "scs04",
+            "iloHostName": "ilo-scs04",
+            "bootMethod": "Local Disk",
+            "networkConnections": [
+              {
+                "networkName": "Out of Band Management(OOBM) Network",
+                "ipAddressType": "IPv4",
+                "purpose": "iLO Management",
+                "ipAddress": "172.28.1.116"
+              },
+              {
+                "networkName": "Foundation Services External Network",
+                "ipAddressType": "IPv4",
+                "purpose": "GL Metal Primary",
+                "ipAddress": "10.180.20.103"
+              },
+              {
+                "networkName": "Storage iSCSI A Network",
+                "ipAddressType": "IPv4",
+                "purpose": "iSCSI",
+                "ipAddress": "172.28.7.7"
+              },
+              {
+                "networkName": "Storage iSCSI B Network",
+                "ipAddressType": "IPv4",
+                "purpose": "iSCSI",
+                "ipAddress": "172.28.8.7"
+              }
+            ],
+            "accessCredentials": [
+              {
+                "target": "HOST",
+                "userName": "administrator",
+                "password": "Password!234"
+              },
+              {
+                "target": "ILO",
+                "userName": "admin",
+                "password": "Password!23456"
+              }
+            ],
+            "networkSettingsPath": "$.serviceGroups[?(@.componentId=='svcGroup-001')].specificAttributes.loadBalancerVIP",
+            "serialNumber": "XYZ"
+          },
+          {
+            "componentId": "server-002",
+            "type": "DL365",
+            "model": "P24741-B23",
+            "hostName": "scs05",
+            "iloHostName": "ilo-scs05",
+            "bootMethod": "Local Disk",
+            "networkConnections": [
+              {
+                "networkName": "Out of Band Management(OOBM) Network",
+                "ipAddressType": "IPv4",
+                "purpose": "iLO Management",
+                "ipAddress": "172.28.1.117"
+              },
+              {
+                "networkName": "Foundation Services External Network",
+                "ipAddressType": "IPv4",
+                "purpose": "GL Metal Primary",
+                "ipAddress": "10.180.20.104"
+              },
+              {
+                "networkName": "Storage iSCSI A Network",
+                "ipAddressType": "IPv4",
+                "purpose": "iSCSI",
+                "ipAddress": "172.28.7.8"
+              },
+              {
+                "networkName": "Storage iSCSI B Network",
+                "ipAddressType": "IPv4",
+                "purpose": "iSCSI",
+                "ipAddress": "172.28.8.8"
+              }
+            ],
+            "accessCredentials": [
+              {
+                "target": "HOST",
+                "userName": "administrator",
+                "password": "Password!234"
+              },
+              {
+                "target": "ILO",
+                "userName": "admin",
+                "password": "Password!23456"
+              }
+            ],
+            "networkSettingsPath": "$.serviceGroups[?(@.componentId=='svcGroup-001')].specificAttributes.loadBalancerVIP",
+            "serialNumber": "XYZ"
+          },
+          {
+            "componentId": "server-003",
+            "type": "DL365",
+            "model": "P24741-B23",
+            "hostName": "scs06",
+            "iloHostName": "ilo-scs06",
+            "bootMethod": "Local Disk",
+            "networkConnections": [
+              {
+                "networkName": "Out of Band Management(OOBM) Network",
+                "ipAddressType": "IPv4",
+                "purpose": "iLO Management",
+                "ipAddress": "172.28.1.118"
+              },
+              {
+                "networkName": "Foundation Services External Network",
+                "ipAddressType": "IPv4",
+                "purpose": "GL Metal Primary",
+                "ipAddress": "10.180.20.105"
+              },
+              {
+                "networkName": "Storage iSCSI A Network",
+                "ipAddressType": "IPv4",
+                "purpose": "iSCSI",
+                "ipAddress": "172.28.7.9"
+              },
+              {
+                "networkName": "Storage iSCSI B Network",
+                "ipAddressType": "IPv4",
+                "purpose": "iSCSI",
+                "ipAddress": "172.28.8.9"
+              }
+            ],
+            "accessCredentials": [
+              {
+                "target": "HOST",
+                "userName": "administrator",
+                "password": "Password!234"
+              },
+              {
+                "target": "ILO",
+                "userName": "admin",
+                "password": "Password!23456"
+              }
+            ],
+            "networkSettingsPath": "$.serviceGroups[?(@.componentId=='svcGroup-001')].specificAttributes.loadBalancerVIP",
+            "serialNumber": "XYz"
+          }
+        ]
+      }
+    }
+  ]
+}
